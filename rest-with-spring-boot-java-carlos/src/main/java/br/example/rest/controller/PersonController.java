@@ -1,13 +1,13 @@
-package controller;
+package br.example.rest.controller;
 
-import model.Person;
+import br.example.rest.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import services.PersonServices;
+import br.example.rest.services.PersonServices;
 
 @RestController
 @RequestMapping("/person")

@@ -1,6 +1,6 @@
-package services;
+package br.example.rest.services;
 
-import model.Person;
+import br.example.rest.model.Person;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import java.util.concurrent.atomic.AtomicLong;

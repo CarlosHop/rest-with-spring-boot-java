@@ -1,4 +1,4 @@
-package model;
+package br.example.rest.model;
 
 import java.io.Serializable;
 import java.util.Objects;
