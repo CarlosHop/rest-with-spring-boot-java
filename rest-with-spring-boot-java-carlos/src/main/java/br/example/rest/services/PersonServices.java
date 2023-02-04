@@ -10,7 +10,6 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
-@Component
 public class PersonServices {
     private final AtomicLong counter = new AtomicLong();
     private Logger logger = Logger.getLogger(PersonServices.class.getName());
@@ -39,13 +38,26 @@ public class PersonServices {
     }
 
     private Person mockPerson(int i) {
-
         Person person = new Person();
         person.setId(counter.incrementAndGet());
         person.setFirstName("Person name: " + i);
         person.setLastName("last Name: " + i);
         person.setAddress("Some address in Brazil " + i);
         person.setGender("Set the gender: " + i);
+        return person;
+    }
+
+    public Person create(Person person){
+        logger.info("Create one person!");
+        return person;
+    }
+
+    public void delete(String id){
+        logger.info("Delete one person!");
+    }
+
+    public Person update(Person person){
+        logger.info("Update one person!");
         return person;
     }
 }
