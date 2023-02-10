@@ -34,12 +34,12 @@ public class PersonServices {
                 .orElseThrow(() -> new ResourceNotFoundException("No record found for this ID!"));
     }
 
-    public Person create(Person person){
+    public Person create(Person person) {
         logger.info("Create one person!");
         return repository.save(person);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         logger.info("Delete one person!");
 
         var entity = repository.findById(id)
@@ -48,12 +48,10 @@ public class PersonServices {
 
     }
 
-    public Person update(Person person){
+    public Person update(Person person) {
         logger.info("Update one person!");
-
         var entity = repository.findById(person.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("No record found for this ID!"));
-
         entity.setFirstName(person.getFirstName());
         entity.setLastName(person.getLastName());
         entity.setAddress(person.getAddress());
