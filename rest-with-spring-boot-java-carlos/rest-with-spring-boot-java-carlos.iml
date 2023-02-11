@@ -17,7 +17,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="rest-with-spring-boot-java-carlos" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -122,5 +124,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:6.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:6.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:3.1.1" level="project" />
   </component>
 </module>

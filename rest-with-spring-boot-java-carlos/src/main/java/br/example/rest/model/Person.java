@@ -1,13 +1,14 @@
 package br.example.rest.model;
 
+import br.example.rest.data.vo.v1.PersonVo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "person")
-public class Person implements Serializable {
+@Table(name="person")
+public class Person extends PersonVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -17,11 +18,11 @@ public class Person implements Serializable {
     @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, length = 80)
+    @Column(name ="last_name", nullable = false, length = 80)
     private String lastName;
-    @Column(nullable = false, length = 80)
+    @Column( nullable = false, length = 80)
     private String address;
-    @Column(nullable = false, length = 6)
+    @Column( nullable = false, length = 6)
     private String gender;
 
     public Person() {
