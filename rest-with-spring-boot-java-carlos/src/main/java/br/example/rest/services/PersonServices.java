@@ -2,7 +2,7 @@ package br.example.rest.services;
 
 import br.example.rest.data.vo.v1.PersonVo;
 import br.example.rest.exceptions.ResourceNotFoundException;
-import br.example.rest.mapper.DozerMapper;
+import br.example.rest.mapper.ModelMapper;
 import br.example.rest.model.Person;
 import br.example.rest.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class PersonServices {
 
         logger.info("Finding all people!");
 
-        return DozerMapper.parseListObjects(repository.findAll(), PersonVo.class);
+        return ModelMapper.parseListObjects(repository.findAll(), PersonVo.class);
     }
 
     public PersonVo findById(Long id) {
@@ -31,14 +31,14 @@ public class PersonServices {
 
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
-        return DozerMapper.parseObject(entity, PersonVo.class);
+        return ModelMapper.parseObject(entity, PersonVo.class);
     }
 
     public PersonVo create(PersonVo person) {
 
         logger.info("Creating one person!");
-        var entity = DozerMapper.parseObject(person, Person.class);
-        var vo = DozerMapper.parseObject(repository.save(entity), PersonVo.class);
+        var entity = ModelMapper.parseObject(person, Person.class);
+        var vo = ModelMapper.parseObject(repository.save(entity), PersonVo.class);
         return vo;
     }
 
@@ -54,7 +54,7 @@ public class PersonServices {
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
 
-        var vo = DozerMapper.parseObject(repository.save(entity), PersonVo.class);
+        var vo = ModelMapper.parseObject(repository.save(entity), PersonVo.class);
         return vo;
     }
 

@@ -3,7 +3,7 @@ package unittests.mapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import br.example.rest.data.vo.v1.PersonVo;
-import br.example.rest.mapper.DozerMapper;
+import br.example.rest.mapper.ModelMapper;
 import br.example.rest.model.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class MapperConverterTests {
 
     @Test
     public void parseEntityToVOTest() {
-        PersonVo output = DozerMapper.parseObject(inputObject.mockEntity(), PersonVo.class);
+        PersonVo output = ModelMapper.parseObject(inputObject.mockEntity(), PersonVo.class);
         assertEquals(Long.valueOf(0L), output.getId());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
@@ -32,7 +32,7 @@ public class MapperConverterTests {
 
     @Test
     public void parseEntityListToVOListTest() {
-        List<PersonVo> outputList = DozerMapper.parseListObjects(inputObject.mockEntityList(), PersonVo.class);
+        List<PersonVo> outputList = ModelMapper.parseListObjects(inputObject.mockEntityList(), PersonVo.class);
         PersonVo outputZero = outputList.get(0);
 
         assertEquals(Long.valueOf(0L), outputZero.getId());
@@ -60,7 +60,7 @@ public class MapperConverterTests {
 
     @Test
     public void parseVOToEntityTest() {
-        Person output = DozerMapper.parseObject(inputObject.mockVO(), Person.class);
+        Person output = ModelMapper.parseObject(inputObject.mockVO(), Person.class);
         assertEquals(Long.valueOf(0L), output.getId());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
@@ -70,7 +70,7 @@ public class MapperConverterTests {
 
     @Test
     public void parserVOListToEntityListTest() {
-        List<Person> outputList = DozerMapper.parseListObjects(inputObject.mockVOList(), Person.class);
+        List<Person> outputList = ModelMapper.parseListObjects(inputObject.mockVOList(), Person.class);
         Person outputZero = outputList.get(0);
 
         assertEquals(Long.valueOf(0L), outputZero.getId());

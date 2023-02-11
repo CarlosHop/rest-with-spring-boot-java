@@ -1,13 +1,11 @@
 package br.example.rest.mapper;
 
-import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class DozerMapper {
+public class ModelMapper {
 
-    private static final ModelMapper mapper = new ModelMapper();
+    private static final org.modelmapper.ModelMapper mapper = new org.modelmapper.ModelMapper();
 
     public static <O, D> D parseObject(O origin, Class<D> destination) {
         return mapper.map(origin, destination);
