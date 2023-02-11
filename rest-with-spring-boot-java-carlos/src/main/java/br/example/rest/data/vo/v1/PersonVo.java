@@ -54,6 +54,7 @@ public class PersonVo implements Serializable {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    
 
     @Override
     public int hashCode() {
@@ -61,39 +62,10 @@ public class PersonVo implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        PersonVO other = (PersonVO) obj;
-        if (address == null) {
-            if (other.address != null)
-                return false;
-        } else if (!address.equals(other.address))
-            return false;
-        if (firstName == null) {
-            if (other.firstName != null)
-                return false;
-        } else if (!firstName.equals(other.firstName))
-            return false;
-        if (gender == null) {
-            if (other.gender != null)
-                return false;
-        } else if (!gender.equals(other.gender))
-            return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (lastName == null) {
-            if (other.lastName != null)
-                return false;
-        } else if (!lastName.equals(other.lastName))
-            return false;
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonVo personVo = (PersonVo) o;
+        return id.equals(personVo.id) && firstName.equals(personVo.firstName) && lastName.equals(personVo.lastName) && address.equals(personVo.address) && gender.equals(personVo.gender);
     }
 }
